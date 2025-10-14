@@ -46,4 +46,8 @@ VITE_OPENAI_API_KEY=sk-...your-key...
 You can watch a demo video here:
 [Demo (QuickTime Movie)](https://drive.google.com/file/d/10H8zVbAEVDTrGYhl-4p1OLogKYXSvaxw/view)
 
+## Sample Image
+
+![Sample Chat UI](public/image/images.png)
+
 # micromeet-chat
