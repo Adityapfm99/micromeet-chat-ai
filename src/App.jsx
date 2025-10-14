@@ -55,11 +55,23 @@ function App() {
           temperature: 0.2,
         }),
       });
-      if (!response.ok) throw new Error("API error: " + response.statusText);
+      if (!response.ok) {
+        let errorMsg = "API error: " + response.statusText;
+        try {
+          const errorData = await response.json();
+          if (errorData.error && errorData.error.message) {
+            errorMsg += `\nDetails: ${errorData.error.message}`;
+          }
+        } catch {}
+        throw new Error(errorMsg);
+      }
       const data = await response.json();
+      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+        throw new Error("No valid response from OpenAI API.");
+      }
       setRecord(data.choices[0].message.content.trim());
     } catch (e) {
-      setError("Error generating medical record: " + e.message);
+      setError("Error generating medical record: " + e.message + "\nPlease check your API key, network connection, and model access.");
     } finally {
       setLoading(false);
     }
