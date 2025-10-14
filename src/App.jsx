@@ -48,7 +48,7 @@ function App() {
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
           messages: [
-            { role: "system", content: "You are a helpful medical assistant. Only answer medical questions. If the topic is not medical, politely say you can only discuss health-related matters." },
+            { role: "system", content: "You are a medical assistant. Only answer questions strictly related to health or medicine. If the topic is not related to health, always reply: 'Sorry, I can only discuss health-related matters.' Do not answer non-medical questions under any circumstances." },
             { role: "user", content: prompt }
           ],
           max_tokens: 256,
@@ -128,7 +128,7 @@ function App() {
         <button
           className="record-btn"
           onClick={generateMedicalRecord}
-          disabled={loading || messages.length === 0}
+          disabled={loading || messages.length === 0 || !messages.some(m => m.role === 'Patient') || !messages.some(m => m.role === 'Doctor')}
         >
           {loading ? "Generating..." : "Generate Medical Record"}
         </button>
