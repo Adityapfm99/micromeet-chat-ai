@@ -41,12 +41,23 @@ VITE_OPENAI_API_KEY=sk-...your-key...
 - See the conversation build up
 - Click "Generate Medical Record" to get a summary
 
+## Running Unit Tests
+
+To run unit tests:
+```
+npm test
+```
+All tests are located in `src/test/` and use Vitest + React Testing Library.
+
+## ScreenShot 
+![Unittest](public/image/unittest.png)
+
 ## Sample Video
 
 You can watch a demo video here:
 [Demo (QuickTime Movie)](https://drive.google.com/file/d/10H8zVbAEVDTrGYhl-4p1OLogKYXSvaxw/view)
 
-## Sample Image
+## Sample Screenshot
 
 ![Sample Chat UI](public/image/images.png)
 
