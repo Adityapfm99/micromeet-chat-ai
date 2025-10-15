@@ -1,5 +1,7 @@
 # Micromeet AI Doctor-Patient Chat & Medical Record Generator
 
+🔗 **Live Demo**: [https://micromeet-chat-ai.vercel.app/](https://micromeet-chat-ai.vercel.app/)
+
 ## Features
 
 - Doctor/Patient chat interface with real-time conversation
@@ -64,4 +66,7 @@ The app automatically detects environment and uses appropriate endpoints.
 ## Screenshots
 
 ![Sample Chat UI](public/image/images.png)
+*Doctor-Patient chat interface with real-time conversation and medical record generation*
+
 ![Unit Tests](public/image/unittest.png)
+*Complete unit test suite with 100% pass rate using Vitest and React Testing Library*
