@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/chat.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "VITE_OPENAI_API_KEY": "@vite_openai_api_key"
+  }
+}

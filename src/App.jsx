@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
+// Dynamic API URL - works for both local development and Vercel deployment
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? '/api/chat' 
+  : 'http://localhost:3001/api/chat/completions';
+
 function App() {
   const [messages, setMessages] = useState([]);
   const [doctorInput, setDoctorInput] = useState("");
@@ -39,11 +44,10 @@ function App() {
     const prompt = `Given the following doctor-patient conversation, generate a simple medical record with:\n- Chief Complaint\n- Symptoms\n- Assessment\n- Plan\n\nConversation:\n${history}\n\nMedical Record:`;
 
     try {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${OPENAI_API_KEY}`,
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
